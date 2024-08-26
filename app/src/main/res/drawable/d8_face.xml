@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="800"
+    android:viewportHeight="800">
+
+    <!-- Base Top Triangle (light purple) -->
+    <path
+        android:fillColor="#8C289D"
+        android:pathData="M400,50 L600,270 L600,400 Z" />
+    <path
+        android:fillColor="#8C289D"
+        android:pathData="M400,50 L200,270 L200,400 Z" />
+
+    <path
+        android:fillColor="#BA2DD1"
+        android:pathData="M400,50 L600,400 L200,400 Z" />
+
+    <!-- Base Top Triangle (light purple) -->
+
+    <path
+        android:fillColor="#3B0F42"
+        android:pathData="M400,530 L600,400 L200,400 Z" />
+
+
+</vector>
