@@ -1,12 +1,4 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="200dp"
-    android:height="200dp"
-    android:viewportWidth="800"
-    android:viewportHeight="800">
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Base triangle -->
-    <path
-        android:fillColor="#2e5c32"
-        android:pathData="M400,180 L650,650 L150,650 Z" />
-
-</vector>
+</selector>

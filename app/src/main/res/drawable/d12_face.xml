@@ -1,34 +1,4 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="200dp"
-    android:height="200dp"
-    android:viewportWidth="800"
-    android:viewportHeight="800">
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Original Pentagon Shape -->
-    <path
-        android:fillColor="#FB2D2D"
-        android:pathData="M400,200 L540,325 L470,480 L330,480 L260,325 Z" />
-
-    <!-- Inverted Pentagon Shape (flipped upside down and positioned correctly) -->
-    <path
-        android:fillColor="#AF1F1F"
-        android:pathData="M400,600 L300,550 L330,480 L470,480 L500,550 Z" />
-
-    <!-- New Pentagon on the Top Right -->
-    <path
-        android:fillColor="#D62828"
-        android:pathData="M540,325 L600,300 L540,170 L400,100 L400,200 Z" />
-
-    <path
-        android:fillColor="#D52828"
-        android:pathData="M400,200 L400,100 L250,170 L200,300 L260,325 Z" />
-
-    <path
-        android:fillColor="#E12828"
-        android:pathData="M200,300 L200,440 L300,550 L330,480 L260,325 Z" />
-
-    <path
-        android:fillColor="#E02828"
-        android:pathData="M600,300 L600,450 L500,550 L470,480 L539,325 Z" />
-
-</vector>
+</selector>
