@@ -1,4 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="750"
+    android:viewportHeight="750">
 
-</selector>
+
+    <!-- Shape -->
+    <path
+        android:fillColor="#F27F00"
+        android:pathData="M400,180 L550,450 L250,450 Z" />
+
+    <path
+        android:fillColor="#F74F00"
+        android:pathData="M400,620 L550,450 L250,450 Z" />
+
+    <path
+        android:fillColor="#F26D00"
+        android:pathData="M400,180 L150,180 L250,450 Z" />
+
+    <path
+        android:fillColor="#F16D00"
+        android:pathData="M400,180 L550,450 L650,180 Z" />
+
+    <path
+        android:fillColor="#F84700"
+        android:pathData="M400,20 L650,180 L150,180 Z" />
+
+    <path
+        android:fillColor="#F65200"
+        android:pathData="M650,450 L550,450 L650,180 Z" />
+
+    <path
+        android:fillColor="#F55200"
+        android:pathData="M150,450 L150,180 L250,450 Z" />
+
+    <path
+        android:fillColor="#BB2900"
+        android:pathData="M400,620 L150,450 L250,450Z" />
+
+    <path
+        android:fillColor="#BA2900"
+        android:pathData="M400,620L550,450 L650,450Z" />
+
+
+</vector>
+
