@@ -15,7 +15,6 @@ RollHelper is an Android application designed to help tabletop gamers with their
 
 <img src="https://github.com/user-attachments/assets/033f9853-2838-4024-8c3e-998b69d6b21a" alt="App Screenshot" width="50%">
 
-
 ## Installation
 
 To run the RollHelper app locally, follow these steps:
@@ -68,9 +67,15 @@ To run the RollHelper app locally, follow these steps:
 - **Optimization**: Improve dice animations and general app optimizing.
 - **Better Dice**: Work on the dice models so they look better.
 
-
 ## Acknowledgments
 
 - Thanks to the open-source community for the libraries and tools that made this project possible.
 - Inspiration from the Dungeons & Dragons and tabletop gaming community.
 
+## License
+
+This project is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. See the [LICENSE](./LICENSE) file for more details.
+
+## Copyright
+
+© 2024, Christian / Nozdub. All rights reserved.
