@@ -1,3 +1,6 @@
+// Copyright (c) 2024, Nozdub
+// All rights reserved.
+
 package com.example.rollhelper.ui
 
 import androidx.compose.foundation.layout.*
@@ -40,6 +43,7 @@ fun RollButton(
             containerColor = MaterialTheme.colorScheme.primary,
             contentColor = MaterialTheme.colorScheme.onPrimary
         ),
+        elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 8.dp),
         modifier = Modifier
             .fillMaxWidth()  // Button occupies full width
             .padding(vertical = 16.dp)

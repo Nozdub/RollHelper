@@ -1,3 +1,6 @@
+// Copyright (c) 2024, Nozdub
+// All rights reserved.
+
 package com.example.rollhelper.ui
 
 import androidx.compose.animation.core.Animatable
