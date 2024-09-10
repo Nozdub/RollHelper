@@ -13,7 +13,8 @@ RollHelper is an Android application designed to help tabletop gamers with their
 
 ## Screenshots
 
-![App Screenshot](![RollHelperImage](https://github.com/user-attachments/assets/033f9853-2838-4024-8c3e-998b69d6b21a))
+<img src="https://github.com/user-attachments/assets/033f9853-2838-4024-8c3e-998b69d6b21a" alt="App Screenshot" width="50%">
+
 
 ## Installation
 
