@@ -3,13 +3,5 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/my_custom_regular" />
-    <font
-        android:fontStyle="italic"
-        android:fontWeight="400"
-        android:font="@font/my_custom_italic" />
-    <font
-        android:fontStyle="normal"
-        android:fontWeight="700"
-        android:font="@font/my_custom_bold" />
+        android:font="@font/koulen_regular" />
 </font-family>

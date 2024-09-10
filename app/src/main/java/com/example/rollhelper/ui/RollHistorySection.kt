@@ -1,11 +1,8 @@
 package com.example.rollhelper.ui
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,10 +16,11 @@ data class RollHistoryEntry(val diceType: String, val diceCount: Int, val total:
 
 @Composable
 fun RollHistorySection(rollHistory: List<RollHistoryEntry>) {
-    OutlinedCard(
-        colors = CardDefaults.outlinedCardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+    ElevatedCard(
+        colors = CardDefaults.elevatedCardColors(
+            containerColor = MaterialTheme.colorScheme.surface,
         ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),  // Adjust elevation as needed
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp)
@@ -30,15 +28,58 @@ fun RollHistorySection(rollHistory: List<RollHistoryEntry>) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp)
+                .padding(2.dp)
         ) {
-            Text(
-                text = "Roll History",
-                style = MaterialTheme.typography.headlineSmall,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-                color = MaterialTheme.colorScheme.onBackground
-            )
-            RollHistoryList(rollHistory)
+            // Outline Text Effect for Roll History Header
+            Box(
+                contentAlignment = Alignment.Center,  // Ensure text is centered
+                modifier = Modifier
+                    .fillMaxWidth()  // Make the Box fill the width
+                    .padding(bottom = 8.dp)
+            ) {
+                // Outline Text
+                Text(
+                    text = "Roll History",
+                    style = MaterialTheme.typography.headlineMedium.copy(
+                        color = MaterialTheme.colorScheme.onTertiary  // Outline color
+                    ),
+                    modifier = Modifier
+                        .offset(x = 0.5.dp, y = 0.5.dp)  // Bottom-right shadow
+                )
+                Text(
+                    text = "Roll History",
+                    style = MaterialTheme.typography.headlineMedium.copy(
+                        color = MaterialTheme.colorScheme.onTertiary  // Outline color
+                    ),
+                    modifier = Modifier
+                        .offset(x = -0.5.dp, y = -0.5.dp)  // Top-left shadow
+                )
+                Text(
+                    text = "Roll History",
+                    style = MaterialTheme.typography.headlineMedium.copy(
+                        color = MaterialTheme.colorScheme.onTertiary  // Outline color
+                    ),
+                    modifier = Modifier
+                        .offset(x = -0.5.dp, y = 0.5.dp)  // Bottom-left shadow
+                )
+                Text(
+                    text = "Roll History",
+                    style = MaterialTheme.typography.headlineMedium.copy(
+                        color = MaterialTheme.colorScheme.onTertiary  // Outline color
+                    ),
+                    modifier = Modifier
+                        .offset(x = 0.5.dp, y = -0.5.dp)  // Top-right shadow
+                )
+
+                // Main Text on Top
+                Text(
+                    text = "Roll History",
+                    style = MaterialTheme.typography.headlineMedium.copy(
+                        color = MaterialTheme.colorScheme.tertiary  // Main text color
+                    )
+                )
+            }
+            RollHistoryList(rollHistory.reversed()) // Allows the most recent roll to appear on top.
         }
     }
 }
@@ -48,7 +89,7 @@ fun RollHistoryList(rollHistory: List<RollHistoryEntry>) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 4.dp)
+            .padding(16.dp)
     ) {
         rollHistory.forEach { entry ->
             RollHistoryItem(entry)
