@@ -62,12 +62,11 @@ To run the RollHelper app locally, follow these steps:
 
 ## Future Enhancements
 
-- **More Dice Types**: Add more specialized dice types for various tabletop games.
-- **Custom Dice Sets**: Allow users to create and save custom sets of dice.
-- **Sound Effects**: Enhance user experience with rolling sound effects.
-- **Dark Mode**: Improve visual accessibility with a dark mode option.
-- **Multiplayer Mode**: Share and sync rolls with other players in real time.
-- **Accessibility Improvements**: Support for screen readers and improved color contrast.
+- **TTRPG modifiers**: Add tracking of modifiers from common ttrpgs.
+- **Increased App Modularity**: Creating app navigation so the user can store modifiers and history separately, allowing the user to navigate from the "roll screen" to user and roll history screens.
+- **Sound Effects**: Might add a dice rolling sound.
+- **Optimization**: Improve dice animations and general app optimizing.
+- **Better Dice**: Work on the dice models so they look better.
 
 
 ## Acknowledgments
