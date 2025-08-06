@@ -24,9 +24,10 @@ fun HistoryPage(
  {
     Scaffold(
         topBar = { AppTopBar() },
+        containerColor = Color.Transparent,
         content = { paddingValues ->
             Surface(
-                color = MaterialTheme.colorScheme.background,
+                color = Color.Transparent,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)

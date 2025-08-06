@@ -1,5 +1,6 @@
 package com.chriaasen.rollhelper.ui.navigation
 
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
@@ -27,6 +28,7 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.systemBars
 
+@RequiresApi(35)
 @Composable
 fun AppNavigation() {
     val pagerState = rememberPagerState(
@@ -129,8 +131,7 @@ fun AppNavigation() {
     } else {
         Box(
             modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background),
+                .fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             Column(
