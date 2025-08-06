@@ -77,6 +77,7 @@ fun ProfilePage(dataStoreManager: DataStoreManager) {
 
     Scaffold(
         topBar = { AppTopBar() },
+        containerColor = Color.Transparent,
         content = { paddingValues ->
             Column(
                 modifier = Modifier

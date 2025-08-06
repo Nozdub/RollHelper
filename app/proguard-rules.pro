@@ -1,21 +1,27 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# Preserve your app code and UI safely while enabling shrinking/obfuscation
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Keep all classes in your app package
+-keep class com.chriaasen.rollhelper.** { *; }
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# Preserve all Composable functions (important for Jetpack Compose)
+-keepclassmembers class * {
+    @androidx.compose.runtime.Composable <methods>;
+}
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# Do not warn about Compose internals (they’re safe to ignore)
+-dontwarn androidx.compose.**
+
+# Preserve metadata for annotations and Kotlin reflection (safe default)
+-keepattributes *Annotation*
+
+# If you use Gson or reflection-based serialization, keep model classes
+# (uncomment if needed)
+# -keepclassmembers class com.chriaasen.rollhelper.** {
+#     <fields>;
+# }
+
+# Preserve DataStore and protobuf classes if needed
+-keep class com.chriaasen.rollhelper.**.proto.** { *; }
+
+# Optional: Keep line numbers for better crash reports (optional)
+# -keepattributes SourceFile,LineNumberTable

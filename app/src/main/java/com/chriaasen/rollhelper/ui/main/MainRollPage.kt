@@ -75,6 +75,7 @@ fun MainRollPage(
 
     Scaffold(
         topBar = { AppTopBar() },
+        containerColor = Color.Transparent,
         snackbarHost = {
             Box(
                 modifier = Modifier.fillMaxSize()
