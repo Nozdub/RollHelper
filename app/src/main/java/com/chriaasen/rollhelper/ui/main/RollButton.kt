@@ -5,9 +5,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.chriaasen.rollhelper.ui.utils.maxDiceValue
@@ -40,12 +38,10 @@ fun RollButton(
                 onRoll(results)
             }
         },
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(vertical = 16.dp),
+        modifier = modifier.fillMaxWidth(),
         colors = ButtonDefaults.elevatedButtonColors(
-            containerColor = MaterialTheme.colorScheme.primary,
-            contentColor = Color.White
+            containerColor = MaterialTheme.colorScheme.tertiary,
+            contentColor = MaterialTheme.colorScheme.onTertiary
         ),
         elevation = ButtonDefaults.elevatedButtonElevation( // Customize elevation
             defaultElevation = 12.dp,
@@ -57,13 +53,7 @@ fun RollButton(
         Text(
             text = "Roll Dice",
             style = MaterialTheme.typography.headlineSmall.copy(
-                color = MaterialTheme.colorScheme.tertiary,
-                letterSpacing = 2.sp,
-                shadow = Shadow(
-                    color = Color.Black.copy(alpha = 0.5f), // Shadow color with transparency
-                    offset = Offset(2f, 2f), // Horizontal and vertical offset for the shadow
-                    blurRadius = 4f // Blur effect for a smoother shadow
-                )
+                letterSpacing = 2.sp
             )
         )
     }

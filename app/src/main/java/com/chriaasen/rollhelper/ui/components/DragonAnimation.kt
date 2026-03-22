@@ -21,8 +21,7 @@ fun DragonAnimation(
     dataStoreManager: DataStoreManager, // Added parameter
     isTriggered: Boolean,
     onFrameUpdate: (Int) -> Unit, // New callback for dice-clearing logic
-    onAnimationEnd: () -> Unit,
-    modifier: Modifier = Modifier
+    onAnimationEnd: () -> Unit
 ) {
     // Dragon frames (resource IDs for `tile000` to `tile014`)
     val dragonFrames = listOf(

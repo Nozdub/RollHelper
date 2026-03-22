@@ -45,6 +45,13 @@ fun AppNavigation() {
     var hasRolled by remember { mutableStateOf(false) }
     var shouldAnimate by remember { mutableStateOf(false) }
 
+    // Modifier + roll-adjust state lifted here so it survives page swipes
+    var selectedModifiers by remember { mutableStateOf(setOf<String>()) }
+    var showModifiers by remember { mutableStateOf(false) }
+    var isCritMode by remember { mutableStateOf(false) }
+    var isProfSelected by remember { mutableStateOf(false) }
+    var isExpertiseSelected by remember { mutableStateOf(false) }
+
     // DataStore
     val context = LocalContext.current
     val dataStoreManager = remember { DataStoreManager(context) }
@@ -55,31 +62,22 @@ fun AppNavigation() {
     var loadingProgress by remember { mutableStateOf(0f) }
 
     LaunchedEffect(Unit) {
-        coroutineScope.launch {
-            withTimeoutOrNull(5000L) { // Timeout after 5 seconds
-                try {
-                    println("Starting preloading...")
-                    delay(100) // Short initial delay
-
-                    // Incrementally update progress
-                    for (i in 1..100) {
-                        delay(20) // Small delay for smooth progress
-                        loadingProgress = i / 100f // Update progress proportionally
-                    }
-
-                    // Perform actual data loading
-                    dataStoreManager.getRollHistory().firstOrNull()?.let { savedHistory ->
-                        rollHistory.clear()
-                        rollHistory.addAll(savedHistory)
-                    }
-
-                    println("Preloading complete.")
-                } catch (e: Exception) {
-                    println("Error during preloading: ${e.message}")
+        // Load data and animate progress bar in parallel
+        val dataJob = coroutineScope.launch {
+            withTimeoutOrNull(5000L) {
+                dataStoreManager.getRollHistory().firstOrNull()?.let { savedHistory ->
+                    rollHistory.clear()
+                    rollHistory.addAll(savedHistory)
                 }
             }
-            isDataPreloaded = true
         }
+        // Animate progress bar while data loads
+        for (i in 1..100) {
+            delay(8)
+            loadingProgress = i / 100f
+        }
+        dataJob.join()
+        isDataPreloaded = true
     }
 
     if (isDataPreloaded) {
@@ -106,9 +104,23 @@ fun AppNavigation() {
                         isFocused = pagerState.currentPage == 1,
                         onRollResultsUpdated = { newRollResults ->
                             rollResults.value = newRollResults
+                            // Reset post-roll toggles on each new roll
+                            isCritMode = false
+                            isProfSelected = false
+                            isExpertiseSelected = false
                         },
                         shouldAnimate = shouldAnimate,
-                        dataStoreManager = dataStoreManager
+                        dataStoreManager = dataStoreManager,
+                        selectedModifiers = selectedModifiers,
+                        onSelectedModifiersChanged = { selectedModifiers = it },
+                        showModifiers = showModifiers,
+                        onShowModifiersChanged = { showModifiers = it },
+                        isCritMode = isCritMode,
+                        onCritModeChanged = { isCritMode = it },
+                        isProfSelected = isProfSelected,
+                        onIsProfSelectedChanged = { isProfSelected = it },
+                        isExpertiseSelected = isExpertiseSelected,
+                        onIsExpertiseSelectedChanged = { isExpertiseSelected = it }
                     )
                     2 -> ProfilePage(dataStoreManager = dataStoreManager)
                 }
@@ -116,6 +128,7 @@ fun AppNavigation() {
             PageIndicator(
                 currentPage = pagerState.currentPage,
                 pageCount = 3,
+                scrollOffsetFraction = pagerState.currentPageOffsetFraction,
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
                     .padding(10.dp)

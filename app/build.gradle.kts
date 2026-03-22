@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("com.google.protobuf") version "0.9.4" // Protocol Buffers plugin
+    kotlin("plugin.serialization") version "1.9.0"
 }
 
 android {
@@ -12,8 +13,8 @@ android {
         applicationId = "com.chriaasen.rollhelper"
         minSdk = 30
         targetSdk = 35
-        versionCode = 4
-        versionName = "1.0.1"
+        versionCode = 7
+        versionName = "2.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -31,11 +32,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
         freeCompilerArgs += listOf(
             "-P",
             "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${project.buildDir.absolutePath}/compose_metrics",
